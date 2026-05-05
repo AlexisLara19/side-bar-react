@@ -5,7 +5,7 @@ const Home = ()=>{
 
     return (
         <>
-            <main className="bg-amber-50 min-h-screen
+            <main className="bg-amber-100 min-h-screen
             grid grid-cols-12">
                 
                 <MenuLateral></MenuLateral> {/*Ancho: 2 columnas*/}
