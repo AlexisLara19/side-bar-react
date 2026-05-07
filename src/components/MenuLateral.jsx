@@ -1,46 +1,59 @@
-import { Link } from "react-router-dom"
+import SidebarItem from "./sub_components/SideBarItem"
 
-const MenuLateral = ()=>{
+const MenuLateral = ({ isOpen, onToggle })=>{
 
     return (
         <>
-            <aside className="bg-[#FFFDEA] col-span-2 pt-5">
+            <aside
+                id="sidebar"
+                className={`${isOpen ? "w-64" : "w-20"} bg-[var(--main-hard)] pt-5 transition-all duration-300 overflow-hidden`}
+            >
                 <ul className="flex flex-col gap-y-4.5">
-                    <li>
-                        <Link to={"/"} className=" group text-[18px] font-semibold flex items-center gap-x-4.5 pl-10 py-4 hover:bg-[rgba(245,200,87,0.3)]">
-                            <i className="fa-solid fa-user text-[25px] text-[#2050e4] group-hover:text-[#0079FF]"></i>
-                            <p className="group-hover:text-[#0079FF] group-hover:font-bold">Perfil</p>
-                        </Link>
+                    <li className={`${isOpen ? "justify-end pr-5" : "justify-center"} flex`}>
+                        <button
+                            onClick={onToggle}
+                            id="toggle-btn"
+                            className="flex h-10 w-10 items-center justify-center"
+                            type="button"
+                        >
+                            <i className={`${isOpen ? "" : "rotate-180"} fa-solid fa-bars flex text-[25px] text-[var(--text-color-menu)] transition-transform duration-300 hover:text-[var(--text-color-menu-hover)]`}></i>
+                        </button>
                     </li>
-                    <li>
-                        <Link to={"/activos"} className="text-[18px] font-semibold flex items-center gap-x-4.5 pl-10 py-4 hover:bg-[#9CD5FF]">
-                            <i className="fa-regular fa-chart-bar text-[25px] text-[#2050e4]"></i>
-                            Servicios Activos
-                        </Link>
-                    </li>
-                    <li>
-                        <a href="" className="text-[18px] font-semibold flex items-center gap-x-4.5 pl-10 py-4 hover:bg-[#9CD5FF]">
-                            <i className="fa-regular fa-calendar text-[25px] text-[#2050e4]"></i>
-                            Historicos
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" className="text-[18px] font-semibold flex items-center gap-x-4.5 pl-10 py-4 hover:bg-[#9CD5FF]">
-                            <i className="fa-regular fa-flag text-[25px] text-[#2050e4]"></i>
-                            Notificaciones
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" className="text-[18px] font-semibold flex items-center gap-x-4.5 pl-10 py-4 hover:bg-[#9CD5FF]">
-                            <i className="fa-regular fa-comments text-[25px] text-[#2050e4]"></i>
-                            Mensajes
-                        </a>
-                    </li>
+                    <SidebarItem
+                        isOpen={isOpen}
+                        icon="fa-solid fa-user"
+                        label="Perfil"
+                    ></SidebarItem>
+                    <SidebarItem
+                        isOpen={isOpen}
+                        to="/resumen"
+                        icon="fa-regular fa-chart-bar"
+                        label="Resumen"
+                    ></SidebarItem>
+                    <SidebarItem
+                        isOpen={isOpen}
+                        to="/tareas"
+                        icon="fa-solid fa-list-check"
+                        label="Tareas"
+                    ></SidebarItem>
+                    <SidebarItem
+                        isOpen={isOpen}
+                        to="/notificaciones"
+                        icon="fa-regular fa-clipboard"
+                        label="Reportes"
+                    ></SidebarItem>
+                    <SidebarItem
+                        isOpen={isOpen}
+                        to="/mensajes"
+                        icon="fa-solid fa-gear"
+                        label="Administrador"
+                    ></SidebarItem>
                 </ul>
 
             </aside>
         </>
     )
 }
+
 
 export default MenuLateral
