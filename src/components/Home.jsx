@@ -23,7 +23,7 @@ const Home = ()=>{
                     <Routes>
                         <Route index element={<MiPerfil></MiPerfil>}></Route>
                         <Route path="resumen" element={<Resumen></Resumen>}></Route>
-                        <Route path="tareas" element={<Tareas></Tareas>}></Route>
+                        <Route path="tareas*" element={<Tareas></Tareas>}></Route>
                     </Routes>
                 </div>
             </main>

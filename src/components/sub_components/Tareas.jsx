@@ -1,9 +1,34 @@
+import { Routes,Route } from "react-router-dom"
+import NavBarItem from "./NavBar/NavBarItem"
+import NavigationBar from "./NavBar/NavigationBar"
 import TaskCompleteTable from "./Task_Components/TaskCompleteTable"
 import TaskGoingTable from "./Task_Components/TaskGoingTable"
 import TaskWaitingTable from "./Task_Components/TaskWaitingTable"
 
 
 const Tareas =()=>{
+    const opcionesNavbar = [
+        {
+            id: 1,
+            name: "Pendientes",
+            link: "/tareas/pendientes"
+        },
+        {
+            id: 2,
+            name: "Realizadas",
+            link: "/tareas/realizadas"
+        },
+        {
+            id: 3,
+            name: "En curso",
+            link: "/tareas/encurso"
+        } 
+    ]
+
+    const opcionesRenderizadas = opcionesNavbar.map((opcionActiva)=>(
+      <NavBarItem id={opcionActiva.id} to={opcionActiva.link} label={opcionActiva.name}></NavBarItem>
+    ))
+
     return (
         <>
         <div className="space-y-2">
@@ -17,36 +42,20 @@ const Tareas =()=>{
 
             {/* Navigation Bar */}
             <div className="mx-8 mb-10">
-                <nav className="bg-white w-full antialiased rounded-lg text-[18px] border-b-1 border-[var(--main-hard)] bg-white">
-                    <div className=" px-4 mx-auto 2xl:px-0 py-2">
-                        <div className="flex items-start justify-between text-[var(--main-hard)]">
-                            <ul class="flex justify-start gap-6 md:gap-8 py-3  ">
-                                
-                                <li className="shrink-0 hover:bg-[var(--tertiary-color)]">
-                                    <a href="#" title="" className="flex  ">
-                                        Pendientes
-                                    </a>
-                                </li>
-                                <li className="shrink-0 hover:bg-[var(--tertiary-color)]">
-                                    <a href="#" title="" className="flex hover:text-primary-700 ">
-                                        Realizadas
-                                    </a>
-                                </li>
-                                <li className="shrink-0 hover:bg-[var(--tertiary-color)]">
-                                    <a href="#" title="" className="flex hover:text-primary-700">
-                                        En curso
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </nav>
+                <NavigationBar opciones={opcionesRenderizadas}>
+                </NavigationBar>
             </div>
             
-            {/* Cambio de tablas */}
-            <div className="">
-                <TaskCompleteTable></TaskCompleteTable>
+            {/* Cambio de tabla estatica a tablas de rendarizado dinamico*/}
+            <div>
+                {/* <TaskCompleteTable></TaskCompleteTable> */}
+                <Routes>
+                        <Route index element={<TaskCompleteTable></TaskCompleteTable>}></Route>
+                        <Route path="/encurso" element={<TaskGoingTable></TaskGoingTable>}></Route>
+                        <Route path="/realizadas" element={<TaskCompleteTable></TaskCompleteTable>}></Route>
+                        <Route path="/pendientes" element={<TaskWaitingTable></TaskWaitingTable>}></Route>
+                </Routes>
+
             </div>
         </div>
     </>
