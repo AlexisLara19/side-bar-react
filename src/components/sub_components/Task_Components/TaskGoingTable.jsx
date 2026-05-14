@@ -7,7 +7,7 @@ const TaskGoingTable = () => {
                             border border-separate border-[var(--orange-line)]
                             shadow-base-300/20 shadow-sm text-[var{--main-hard}]'>
             <table class="min-w-full table-auto 
-                          border-spacing-y-2 border-spacing-x-1
+                          border-spacing-y-2 border-spacing-x-5 gap-x-4
                           ">
                          
                 <thead>

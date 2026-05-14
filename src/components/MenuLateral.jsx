@@ -9,14 +9,14 @@ const MenuLateral = ({ isOpen, onToggle })=>{
                 className={`${isOpen ? "w-64" : "w-20"} bg-[var(--main-hard)] pt-5 transition-all duration-300 overflow-hidden`}
             >
                 <ul className="flex flex-col gap-y-4.5">
-                    <li className={`${isOpen ? "justify-end pr-5" : "justify-center"} flex`}>
+                    <li className={`${isOpen ? "justify-start pl-5" : "justify-center"} flex`}>
                         <button
                             onClick={onToggle}
                             id="toggle-btn"
                             className="flex h-10 w-10 items-center justify-center"
                             type="button"
                         >
-                            <i className={`${isOpen ? "" : "rotate-180"} fa-solid fa-bars flex text-[25px] text-[var(--text-color-menu)] transition-transform duration-300 hover:text-[var(--text-color-menu-hover)]`}></i>
+                            <i className={`${isOpen ? "" : "rotate-0"} fa-solid fa-bars flex text-[25px] text-[var(--text-color-menu)] transition-transform duration-300 hover:text-[var(--text-color-menu-hover)]`}></i>
                         </button>
                     </li>
                     <SidebarItem

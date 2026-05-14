@@ -5,13 +5,14 @@ const TaskCompleteTable = () => {
         <>
             <div className='mx-8 rounded-lg py-3 px-2 bg-white
                             border border-separate border-[var(--green-line)]
-                            shadow-base-300/20 shadow-sm text-[var{--main-hard}]'>
+                            shadow-base-300/20 shadow-sm text-[var{--main-hard}]
+                            shadow-lg outline-black/10'>
             <table class="min-w-full table-auto 
-                          border-spacing-y-2 border-spacing-x-1
-                          ">
-                <thead>
+                          border-spacing-y-2 border-spacing-x-5 gap-x-4">
+                <thead >
                     {/* <tr class="border-0 bg-amber-700 *:first:rounded-s-md *:last:rounded-e-md"> */}
-                    <tr class="border-0 *first:rounded-s-md *:last:rounded-e-md">
+                    <tr class="border-0 *first:rounded-s-md *:last:rounded-e-md
+                        ">
                         <th>Titulo </th>
                         <th>Proyecto </th>
                         <th>Categoria </th>
@@ -20,7 +21,7 @@ const TaskCompleteTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-[var(--main-soft)]"><TaskCompleteItem 
+                    <tr class="hover:bg-[var(--main-soft)] "><TaskCompleteItem 
                             titulo={"Adaptacion Valvula Y"} 
                             proyecto={"LTR Q"} 
                             categoria={"Integracion"} 

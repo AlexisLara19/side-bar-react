@@ -31,7 +31,7 @@ const Tareas =()=>{
 
     return (
         <>
-        <div className="space-y-2">
+        <div className="flex-col space-y-2">
 
             {/* Titulo */}
             <div>
@@ -41,13 +41,13 @@ const Tareas =()=>{
             </div>
 
             {/* Navigation Bar */}
-            <div className="mx-8 mb-10">
+            <div className="mx-10 mb-10">
                 <NavigationBar opciones={opcionesRenderizadas}>
                 </NavigationBar>
             </div>
             
             {/* Cambio de tabla estatica a tablas de rendarizado dinamico*/}
-            <div>
+            <div className="max-h-full p-1 m-3 h-max ">
                 {/* <TaskCompleteTable></TaskCompleteTable> */}
                 <Routes>
                         <Route index element={<TaskCompleteTable></TaskCompleteTable>}></Route>
@@ -57,6 +57,8 @@ const Tareas =()=>{
                 </Routes>
 
             </div>
+            
+            
         </div>
     </>
 
